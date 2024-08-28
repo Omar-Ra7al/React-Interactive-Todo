@@ -76,13 +76,15 @@ export default function TodosDetails({ todosType }) {
       <div
         key={todo.id}
         className={todo.id === taskId ? `todos ${styleInStatus}` : "todos"}>
-        <p
-          style={{
-            textDecoration: todo.checked ? "line-through" : "",
-          }}>
-          {todo.title}
-        </p>
-        <div>
+        <div className="todo-title">
+          <p
+            style={{
+              textDecoration: todo.checked ? "line-through" : "",
+            }}>
+            {todo.title}
+          </p>
+        </div>
+        <div className="todo-buttons">
           <button
             onClick={() => {
               setOpenUpdatePopup(true);
