@@ -1,0 +1,216 @@
+/* << Start Add Task Styles */
+
+.addTask-continer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+  height: 70px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.addTask-continer.light {
+  background-color: var(--light-bgcolor);
+}
+
+.addTask-continer.night {
+  background-color: var(--night-bgcolor);
+}
+
+.addTask-continer input {
+  flex: 1;
+  background-color: transparent;
+  color: #fff;
+  font-size: 16px;
+  height: 100%;
+}
+.addTask-continer.light input {
+  color: var(--night-bgcolor);
+}
+.addTask-continer input::placeholder {
+  color: #777;
+}
+
+.addTask-continer button {
+  height: 100%;
+  background-color: var(--night-bgcolor);
+  color: white;
+  border-left: 2px solid #8fbaf2;
+  width: 70px;
+  border-radius: 0;
+  font-weight: bold;
+  text-align: center;
+  transition: var(--main-transtion);
+}
+.addTask-continer button:hover {
+  background-color: #8fbaf2;
+  width: 100px;
+}
+.addTask-continer.light button {
+  animation: widthLight 0.7s 1 alternate;
+  background-color: var(--night-bgcolor);
+}
+.addTask-continer.night button {
+  animation: widthNight 0.5s 1 linear;
+  background-color: var(--night-bgcolor);
+}
+@keyframes widthLight {
+  0% {
+    width: 70px;
+  }
+  50% {
+    width: 100px;
+  }
+  100% {
+    width: 70px;
+  }
+}
+@keyframes widthNight {
+  0% {
+    width: 70px;
+  }
+  50% {
+    width: 100px;
+  }
+  100% {
+    width: 70px;
+  }
+}
+
+/* End Add Task Styles // >> */
+
+/* << Start Wrapper Styles */
+.wrapper {
+  width: 100%;
+  background-color: var(--night-bgcolor);
+  overflow: hidden;
+  border-radius: 4px;
+}
+.wrapper.light {
+  background-color: var(--light-bgcolor);
+}
+.wrapper.light .todos-container .todos {
+  color: var(--night-bgcolor);
+}
+
+.wrapper .change-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  color: #777;
+  text-align: center;
+  /* background-color: var(--night-bgcolor); */
+}
+@media (max-width: 775px) {
+  .wrapper .change-status div {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.wrapper .change-status button.active {
+  color: #9fd1ff;
+}
+
+.wrapper .change-status button {
+  background-color: transparent;
+  color: #777;
+}
+
+/* End Wrapper Styles // >> */
+
+/* << Start Todos Container Styles */
+.todos-container {
+  height: 400px;
+  scrollbar-width: none;
+  overflow: scroll;
+}
+
+.todos-container .todos {
+  width: 100%;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #777;
+  transition: padding var(--main-transtion), margin var(--main-transtion);
+}
+
+.todos-container .todos:hover {
+  padding: 20px;
+}
+.todos-container .todos.margin-left {
+  margin-left: -1000px;
+  overflow: hidden;
+  padding: 0;
+  max-height: 0;
+}
+.todos-container .todos.edited {
+}
+.todos-container .todos.edited {
+  animation: pulse 0.5s ease-in-out 1;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.todos-container .todos button {
+  margin-left: 5px;
+  background-color: #8e6bd1;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  font-size: 15px;
+  border-radius: 50%;
+  color: #fff;
+}
+
+.todos-container .todos p {
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.content.night .todos-container .todos {
+  background-color: #202647;
+}
+.content.light .todos-container .todos {
+  background-color: #fff;
+}
+/* End Todos Container Styles // >> */
+
+/* Shimmer Effect */
+.todos-container .todos.shine {
+  background-image: linear-gradient(
+    to right,
+    hsla(186, 100%, 85%, 0.075) 0%,
+    hsla(186, 100%, 85%, 0.175) 20%,
+    hsla(186, 100%, 83%, 0.225) 40%,
+    hsla(186, 100%, 80%, 0.35) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 200% 100%; /* Ensure the gradient covers the full animation range */
+  display: flex;
+  position: relative;
+
+  -webkit-animation: placeholderShimmer 0.5s forwards 2;
+}
+
+@-webkit-keyframes placeholderShimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

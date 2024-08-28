@@ -1,0 +1,30 @@
+/* << Start Header Styles */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+header p {
+  font-size: 40px;
+  color: #fff;
+  font-weight: bolder;
+  letter-spacing: 2.2px;
+}
+.content.light header p {
+  color: var(--night-bgcolor);
+}
+header .icon-mode {
+  font-size: 20px;
+  cursor: pointer;
+}
+.content.night .icon-mode {
+  font-size: 25px;
+  color: goldenrod;
+}
+header button {
+  overflow: hidden;
+}
+
+/* End Header Styles // >> */

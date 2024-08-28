@@ -1,0 +1,66 @@
+/* << Start Global Styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --glow-color: hsl(186 100% 69%);
+  --main-transtion: 0.3s;
+  --night-bgcolor: #202647;
+  --light-bgcolor: #fff;
+}
+
+.content {
+  min-height: 100vh;
+  padding: 50px 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.content.night {
+  background-image: linear-gradient(
+    to bottom,
+    #2c3e50,
+    #34495e,
+    #5d6d7e,
+    #85929e,
+    #aab7b8
+  );
+}
+.content.light {
+  background-image: linear-gradient(
+    to bottom,
+    #8e6bd1,
+    #8978d8,
+    #8484de,
+    #828fe2,
+    #829ae5,
+    #84a2e8,
+    #87aaeb,
+    #8bb2ed,
+    #8fbaf2,
+    #94c2f6,
+    #99c9fb,
+    #9fd1ff
+  );
+}
+
+input,
+button {
+  outline: none;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* End Global Styles // >> */
