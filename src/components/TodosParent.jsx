@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
 import "../styles/glowingBtn.css";
 import "../styles/header.css";
+
+import { useState, useEffect } from "react";
 import {
   useTodos,
   useSetTodos,
@@ -9,24 +10,28 @@ import {
 
 import TodosDetails from "./TodosDetails";
 import PopupStatus from "../Popups/PopupStatus";
+
+// React icons
 import { GoSun } from "react-icons/go";
 import { GiNightSleep } from "react-icons/gi";
 
 export default function TodosParent() {
-  const [inputValue, setInputValue] = useState("");
-  const [lightNight, setlightNight] = useState(false);
-  const [todosType, setTodosType] = useState("all");
+  //  useReducer >>
+  const todosState = useTodos();
+  const dispatch = useSetTodos();
+  const { popupMsg, openPopup, handelOpenPopupandMsg } = useHandlePopup();
 
+  // States >>
+  const [inputValue, setInputValue] = useState("");
+  const [todosType, setTodosType] = useState("all");
   const [toggleActive, setToggleActive] = useState({
     all: true,
     notCompleted: false,
     completed: false,
   });
 
-  const todosState = useTodos();
-  const dispatch = useSetTodos();
   const [loader, setLoader] = useState(false);
-  const { popupMsg, openPopup, handelOpenPopupandMsg } = useHandlePopup();
+  const [lightNight, setlightNight] = useState(false);
 
   // <<  Start Loading Todos
   useEffect(() => {
@@ -39,6 +44,7 @@ export default function TodosParent() {
   }, []);
   // End Loading Todos // >>
 
+  // Start Eventhandlers >>
   const handelAdd = () => {
     dispatch({ type: "add", payload: inputValue });
     localStorage.setItem("todos", JSON.stringify(todosState));
@@ -56,8 +62,10 @@ export default function TodosParent() {
   };
 
   const clearCompleted = () => {
-    dispatch({type:"clear-completed"})
+    dispatch({ type: "clear-completed" });
   };
+  // End Eventhandlers //>>
+
   return (
     <div className={lightNightClass("content")}>
       <div className="container">
@@ -89,7 +97,6 @@ export default function TodosParent() {
           </button>
         </div>
 
-        {/* // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */}
         <div className={lightNightClass("wrapper")}>
           <div className="todos-container">
             {loader ? (
@@ -97,7 +104,6 @@ export default function TodosParent() {
             ) : (
               <TodosDetails todosType={todosType} />
             )}
-            {/* // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */}
           </div>
 
           <div className="change-status">
@@ -156,6 +162,7 @@ export default function TodosParent() {
             </button>
           </div>
         </div>
+
         {openPopup ? (
           <PopupStatus status={popupMsg} variant={"succes"} />
         ) : (

@@ -9,20 +9,11 @@ export default function UpdatePopup({
   const todosState = useTodos();
   const [editValue, setEditValue] = useState(todosState[taskId].title);
 
-  const handleCancel = () => {
-    setOpenUpdatePopup(false); // Close the popup
-  };
-
-  const handleUpdate = () => {
-    handelUpdate(taskId, editValue);
-    setOpenUpdatePopup(false); // Close the popup after updating
-  };
-
   return (
     <div
-      className="popup"
+      className="popup update"
       onClick={(e) => {
-        if (e.target.className === "popup") handleCancel();
+        if (e.target.className === "popup") setOpenUpdatePopup(false);
       }}>
       <div className="popup-content">
         <h2>Edit Task ({taskId})</h2>
@@ -34,8 +25,19 @@ export default function UpdatePopup({
             }}
             value={editValue}
           />
-          <button onClick={handleUpdate}>Edit</button>
-          <button onClick={handleCancel}>Cancel</button>
+          <button
+            onClick={() => {
+              handelUpdate(taskId, editValue);
+              setOpenUpdatePopup(false);
+            }}>
+            Edit
+          </button>
+          <button
+            onClick={() => {
+              setOpenUpdatePopup(false);
+            }}>
+            Cancel
+          </button>
         </div>
       </div>
     </div>

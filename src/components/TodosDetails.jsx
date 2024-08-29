@@ -1,31 +1,37 @@
+import "../styles/todos.css";
+import "../styles/popup.css";
+
+import { useMemo, useState } from "react";
+
 import {
   useTodos,
   useSetTodos,
   useHandlePopup,
 } from "../contexts/TodosContext";
-import UpdatePopup from "../Popups/UpdatePopup";
-import { useMemo, useState } from "react";
-import "../styles/todos.css";
-import "../styles/popup.css";
 
 // React icons
 import { MdDeleteOutline } from "react-icons/md";
 import { RxUpdate } from "react-icons/rx";
 import { FaCheckCircle } from "react-icons/fa";
+
+// Component
 import PopupStatus from "../Popups/PopupStatus";
 import DeletePopup from "../Popups/DeletePopup";
+import UpdatePopup from "../Popups/UpdatePopup";
 
 export default function TodosDetails({ todosType }) {
+  // useReducer
   const todosState = useTodos();
   const dispatch = useSetTodos();
-
   const { popupMsg, openPopup, handelOpenPopupandMsg } = useHandlePopup();
 
-  const [openUpdatePopup, setOpenUpdatePopup] = useState(false);
+  // States
   const [taskId, setTaksId] = useState(0);
-  const [styleInStatus, setStyleInStatus] = useState("");
+  const [openUpdatePopup, setOpenUpdatePopup] = useState(false);
   const [openDeletePopup, setOpenDeletePopup] = useState(false);
+  const [styleInStatus, setStyleInStatus] = useState("");
 
+  // Start EventHandelrs >>
   const handelUpdate = (id, editValue) => {
     setStyleInStatus("edited");
     setTaksId(id);
@@ -47,8 +53,8 @@ export default function TodosDetails({ todosType }) {
     dispatch({ type: "check", payload: id });
     handelOpenPopupandMsg(`Task ${id + 1} State Changed`);
   };
-  /* <<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>> */
 
+  // Called in <PopupDelete />
   const handelDelete = (id) => {
     setTaksId(id);
     setStyleInStatus("margin-left");
@@ -59,8 +65,9 @@ export default function TodosDetails({ todosType }) {
     }, 1000);
   };
 
-  /* <<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>> */
+  // End EventHandelrs // >>
 
+  // Filter Todos Dependes on todosType
   let filteredTodo = useMemo(() => {
     if (todosType === "all") {
       return todosState;
@@ -71,6 +78,7 @@ export default function TodosDetails({ todosType }) {
     }
   }, [todosState, todosType]);
 
+  // Todos jsx > maping into filteredTodo
   const todosJsx = useMemo(() => {
     return filteredTodo.map((todo) => (
       <div
@@ -84,16 +92,8 @@ export default function TodosDetails({ todosType }) {
             {todo.title}
           </p>
         </div>
+        {/* Start Buttons */}
         <div className="todo-buttons">
-          <button
-            onClick={() => {
-              setOpenUpdatePopup(true);
-              setTaksId(todo.id);
-            }}>
-            <RxUpdate />
-          </button>
-
-          {/* <<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>> */}
           <button
             onClick={() => {
               setOpenDeletePopup(true);
@@ -101,7 +101,14 @@ export default function TodosDetails({ todosType }) {
             }}>
             <MdDeleteOutline />
           </button>
-          {/* <<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>> */}
+
+          <button
+            onClick={() => {
+              setOpenUpdatePopup(true);
+              setTaksId(todo.id);
+            }}>
+            <RxUpdate />
+          </button>
 
           <button
             style={{ backgroundColor: todo.checked ? "#07bf01" : "" }}
@@ -111,20 +118,27 @@ export default function TodosDetails({ todosType }) {
             <FaCheckCircle />
           </button>
         </div>
+        {/* End Buttons */}
       </div>
     ));
   }, [todosState, todosType, taskId, styleInStatus]);
 
   return (
     <div>
-      {openUpdatePopup && (
+      {openUpdatePopup ? (
         <UpdatePopup
           setOpenUpdatePopup={setOpenUpdatePopup}
           taskId={taskId}
           handelUpdate={handelUpdate}
         />
+      ) : (
+        <></>
       )}
+
+      {/* Called Todo jsx >> */}
       {todosJsx}
+      {/* Called Todo jsx >> */}
+
       {openDeletePopup ? (
         <DeletePopup
           setOpenDeletePopup={setOpenDeletePopup}
@@ -132,8 +146,9 @@ export default function TodosDetails({ todosType }) {
           handelDelete={handelDelete}
         />
       ) : (
-        ""
+        <></>
       )}
+      {/* Popup Status msg */}
       {openPopup && <PopupStatus status={popupMsg} variant={"succes"} />}
     </div>
   );

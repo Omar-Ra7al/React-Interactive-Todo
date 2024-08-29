@@ -1,5 +1,4 @@
-/* << Start Popup Styles */
-
+/* << Start Popup Status msg */
 .popup-status {
   position: absolute;
   left: -1000px;
@@ -53,11 +52,9 @@
     left: -1000px;
   }
 }
+/* End  Popup Status msg // >> */
 
-/* End Popup Styles // >> */
-
-/* << Start Update Popup Styles */
-
+/* << Start ((( Update && Delete  ))) Popup Styles */
 .popup {
   position: fixed;
   top: 0;
@@ -96,7 +93,7 @@
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
-  margin-bottom: 20px; /* Space between input and buttons */
+  margin-bottom: 20px;
 }
 
 .popup-content button {
@@ -149,6 +146,10 @@
   background-color: #ccc;
 }
 
+/* Update color */
+.popup.update .popup-content button:first-of-type {
+  background-color: yellowgreen;
+}
 /* Keyframes */
 @keyframes popupExpand {
   0% {
@@ -176,4 +177,4 @@
   }
 }
 
-/* End Update Popup Styles // >> */
+/* End Start ((( Update && Delete  ))) Popup Styles  // >> */

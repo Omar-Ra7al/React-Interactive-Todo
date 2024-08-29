@@ -1,9 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Raleway");
-
-/* .content.light {
-  --glow-color: #8978d8;
-} */
-
 .glowing-btn {
   position: relative;
   color: var(--glow-color);

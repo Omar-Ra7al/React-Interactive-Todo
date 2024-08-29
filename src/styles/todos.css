@@ -1,5 +1,4 @@
 /* << Start Add Task Styles */
-
 .addTask-continer {
   width: 100%;
   display: flex;
@@ -10,6 +9,7 @@
   border-radius: 4px;
   overflow: hidden;
 }
+
 .addTask-continer.light {
   background-color: var(--light-bgcolor);
 }
@@ -25,9 +25,11 @@
   font-size: 16px;
   height: 100%;
 }
+
 .addTask-continer.light input {
   color: var(--night-bgcolor);
 }
+
 .addTask-continer input::placeholder {
   color: #777;
 }
@@ -43,36 +45,45 @@
   text-align: center;
   transition: var(--main-transtion);
 }
+
 .addTask-continer button:hover {
   background-color: #8fbaf2;
   width: 100px;
 }
+
 .addTask-continer.light button {
   animation: widthLight 0.7s 1 alternate;
   background-color: var(--night-bgcolor);
 }
+
 .addTask-continer.night button {
   animation: widthNight 0.5s 1 linear;
   background-color: var(--night-bgcolor);
 }
+
 @keyframes widthLight {
   0% {
     width: 70px;
   }
+
   50% {
     width: 100px;
   }
+
   100% {
     width: 70px;
   }
 }
+
 @keyframes widthNight {
   0% {
     width: 70px;
   }
+
   50% {
     width: 100px;
   }
+
   100% {
     width: 70px;
   }
@@ -87,35 +98,13 @@
   overflow: hidden;
   border-radius: 4px;
 }
+
 .wrapper.light {
   background-color: var(--light-bgcolor);
 }
+
 .wrapper.light .todos-container .todos {
   color: var(--night-bgcolor);
-}
-
-.wrapper .change-status {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  color: #777;
-  text-align: center;
-  /* background-color: var(--night-bgcolor); */
-}
-@media (max-width: 775px) {
-  .wrapper .change-status div {
-    display: flex;
-    flex-direction: column;
-  }
-}
-.wrapper .change-status button.active {
-  color: #9fd1ff;
-}
-
-.wrapper .change-status button {
-  background-color: transparent;
-  color: #777;
 }
 
 /* End Wrapper Styles // >> */
@@ -141,6 +130,15 @@
 .todos-container .todos:hover {
   padding: 20px;
 }
+
+.content.night .todos-container .todos {
+  background-color: #202647;
+}
+
+.content.light .todos-container .todos {
+  background-color: #fff;
+}
+
 .todos-container .todos.margin-left {
   margin-left: -1000px;
   overflow: hidden;
@@ -156,12 +154,29 @@
   0% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.05);
   }
+
   100% {
     transform: scale(1);
   }
+}
+
+.todos-container .todo-title {
+  max-width: 50%;
+  height: fit-content;
+  flex-wrap: wrap;
+}
+
+.todos-container .todos p {
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: capitalize;
+  white-space: normal;
+  /* Allow wrapping */
+  word-wrap: break-word;
 }
 
 .todos-container .todos button {
@@ -174,30 +189,40 @@
   border-radius: 50%;
   color: #fff;
 }
+
 .todos-container .todos .todo-buttons {
   width: 50%;
   text-align: end;
 }
 
-.todos-container .todo-title {
-  max-width: 50%;
-  height: fit-content;
-  flex-wrap: wrap;
-}
-.todos-container .todos p {
-  font-size: 20px;
-  font-weight: 500;
-  text-transform: capitalize;
-  white-space: normal; /* Allow wrapping */
-  word-wrap: break-word;
-}
-.content.night .todos-container .todos {
-  background-color: #202647;
-}
-.content.light .todos-container .todos {
-  background-color: #fff;
-}
 /* End Todos Container Styles // >> */
+
+/* Start Change Status buttons */
+.wrapper .change-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  color: #777;
+  text-align: center;
+}
+
+@media (max-width: 775px) {
+  .wrapper .change-status div {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.wrapper .change-status button.active {
+  color: #9fd1ff;
+}
+
+.wrapper .change-status button {
+  background-color: transparent;
+  color: #777;
+}
+/* End Change Status buttons */
 
 /* Shimmer Effect */
 .todos-container .todos.shine {
@@ -209,7 +234,8 @@
     hsla(186, 100%, 80%, 0.35) 100%
   );
   background-repeat: no-repeat;
-  background-size: 200% 100%; /* Ensure the gradient covers the full animation range */
+  background-size: 200% 100%;
+  /* Ensure the gradient covers the full animation range */
   display: flex;
   position: relative;
 
@@ -220,6 +246,7 @@
   0% {
     background-position: 200% 0;
   }
+
   100% {
     background-position: -200% 0;
   }

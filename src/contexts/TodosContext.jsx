@@ -3,6 +3,7 @@ import { createContext, useContext, useReducer, useState } from "react";
 import todosReducer from "../Reducers/todosReducer";
 
 export const TodosContext = createContext();
+
 export default function TodosProvider({ children }) {
   const initialTodos = JSON.parse(localStorage.getItem("todos")) || [];
   // << Start Set Popup msg and open it states
