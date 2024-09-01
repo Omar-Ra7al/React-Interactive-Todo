@@ -117,6 +117,11 @@
   scrollbar-width: none;
   overflow: scroll;
 }
+@media (max-width: 575px) {
+  .todos-container {
+    height: 300px;
+  }
+}
 
 .todos-container .todos {
   width: 100%;
@@ -232,6 +237,7 @@
 /* End Change Status buttons */
 
 /* Shimmer Effect */
+
 .todos-container .todos.shine {
   background-image: linear-gradient(
     to right,

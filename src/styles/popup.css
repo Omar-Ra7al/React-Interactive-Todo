@@ -171,16 +171,4 @@
   }
 }
 
-@keyframes popupWave {
-  0%,
-  100% {
-    box-shadow: 0 0 4px #ff4d4d, 0 0 8px #ff4d4d, 0 0 10px #ff4d4d,
-      0 0 15px #ff4d4d;
-  }
-  50% {
-    box-shadow: 0 0 6px #ff4d4d, 0 0 12px #ff4d4d, 0 0 14px #ff4d4d,
-      0 0 20px #ff4d4d;
-  }
-}
-
 /* End Start ((( Update && Delete  ))) Popup Styles  // >> */
