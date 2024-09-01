@@ -60,10 +60,11 @@ export default function TodosDetails({ todosType }) {
     setTaksId(id);
     setStyleInStatus("margin-left");
     setTimeout(() => {
+      // Delay  the deletaion to show the animation
       dispatch({ type: "delete", payload: id });
-      handelOpenPopupandMsg(`Task ${todoNumber(id)} Deleted `);
       setStyleInStatus("");
-    }, 1000);
+    }, 1500);
+    handelOpenPopupandMsg(`Task ${todoNumber(id)} Deleted `);
   };
 
   // End EventHandelrs // >>
