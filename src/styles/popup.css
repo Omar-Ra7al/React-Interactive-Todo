@@ -24,7 +24,7 @@
 
 .popup-status.succes {
   left: 10%;
-  animation: variant 3s 1 ease-in-out;
+  animation: variant 2s 1 ease-in-out;
   transition: 0.5s;
   animation-delay: 0.5s;
 }
