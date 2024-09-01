@@ -1,4 +1,3 @@
-import "../styles/loader.css";
 import { createContext, useContext, useReducer, useState } from "react";
 import todosReducer from "../Reducers/todosReducer";
 
@@ -18,7 +17,7 @@ export default function TodosProvider({ children }) {
     setOpenPopup(true);
     setTimeout(() => {
       setOpenPopup(false);
-    }, 3000);
+    }, 2000);
   }
 
   return (

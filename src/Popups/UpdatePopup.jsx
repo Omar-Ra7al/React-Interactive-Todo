@@ -7,16 +7,23 @@ export default function UpdatePopup({
   handelUpdate,
 }) {
   const todosState = useTodos();
-  const [editValue, setEditValue] = useState(todosState[taskId].title);
+
+  const todoNumber = (id) => {
+    return todosState.findIndex((t) => t.id === id) + 1;
+  };
+
+  const [editValue, setEditValue] = useState(
+    todosState[todoNumber(taskId) - 1].title
+  );
 
   return (
     <div
       className="popup update"
       onClick={(e) => {
-        if (e.target.className === "popup") setOpenUpdatePopup(false);
+        if (e.target.className === "popup update") setOpenUpdatePopup(false);
       }}>
       <div className="popup-content">
-        <h2>Edit Task ({taskId})</h2>
+        <h2>Edit Task ({todoNumber(taskId)})</h2>
         <div>
           <input
             type="text"

@@ -1,5 +1,6 @@
 import "../styles/glowingBtn.css";
 import "../styles/header.css";
+import "../styles/loader.css";
 
 import { useState, useEffect } from "react";
 import {
@@ -62,6 +63,7 @@ export default function TodosParent() {
   };
 
   const clearCompleted = () => {
+    handelOpenPopupandMsg("All Completed Cleared");
     dispatch({ type: "clear-completed" });
   };
   // End Eventhandlers //>>
@@ -100,7 +102,9 @@ export default function TodosParent() {
         <div className={lightNightClass("wrapper")}>
           <div className="todos-container">
             {loader ? (
-              <span className="loader"></span>
+              <div className="loader-parent">
+                <span className="loader"></span>
+              </div>
             ) : (
               <TodosDetails todosType={todosType} />
             )}

@@ -71,7 +71,7 @@
 
 .popup-content {
   background-color: #fff;
-  padding: 20px;
+  padding: 30px 20px;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   max-width: 80%;
@@ -82,10 +82,12 @@
 
 .popup-content h2 {
   margin-top: 0;
+  font-weight: 500;
 }
 
-.popup-content div {
-  margin-top: 15px;
+.popup-content p,
+.popup-content input {
+  margin: 20px 0;
 }
 
 .popup-content input {
@@ -102,9 +104,13 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
+  transition: var(--main-transtion);
 }
-
+.popup-content button:hover {
+  box-shadow: 0 0px 6px rgba(255, 255, 255, 0.438);
+  transform: scale(1.04);
+}
 .popup-content button:first-of-type {
   background-color: #ff4d4d;
   color: #fff;

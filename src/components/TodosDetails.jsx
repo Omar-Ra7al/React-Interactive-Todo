@@ -31,6 +31,9 @@ export default function TodosDetails({ todosType }) {
   const [openDeletePopup, setOpenDeletePopup] = useState(false);
   const [styleInStatus, setStyleInStatus] = useState("");
 
+  const todoNumber = (id) => {
+    return todosState.findIndex((t) => t.id === id) + 1;
+  };
   // Start EventHandelrs >>
   const handelUpdate = (id, editValue) => {
     setStyleInStatus("edited");
@@ -38,9 +41,8 @@ export default function TodosDetails({ todosType }) {
     setTimeout(() => {
       setStyleInStatus("");
     }, 1000);
-
     dispatch({ type: "update", payload: { id, editValue } });
-    handelOpenPopupandMsg(`Task ${id + 1} Updated `);
+    handelOpenPopupandMsg(`Task ${todoNumber(id)} Updated `);
   };
 
   const handelCheck = (id) => {
@@ -49,9 +51,8 @@ export default function TodosDetails({ todosType }) {
     setTimeout(() => {
       setStyleInStatus("");
     }, 1000);
-
     dispatch({ type: "check", payload: id });
-    handelOpenPopupandMsg(`Task ${id + 1} State Changed`);
+    handelOpenPopupandMsg(`Task ${todoNumber(id)} State Changed`);
   };
 
   // Called in <PopupDelete />
@@ -60,7 +61,7 @@ export default function TodosDetails({ todosType }) {
     setStyleInStatus("margin-left");
     setTimeout(() => {
       dispatch({ type: "delete", payload: id });
-      handelOpenPopupandMsg(`Task ${id + 1} Deleted `);
+      handelOpenPopupandMsg(`Task ${todoNumber(id)} Deleted `);
       setStyleInStatus("");
     }, 1000);
   };

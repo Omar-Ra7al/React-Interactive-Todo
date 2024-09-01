@@ -11,3 +11,5 @@ function App() {
 }
 
 export default App;
+
+// Rafce >> from es7 will creat a function and wexport it by depend on the file name >> shortchut 
