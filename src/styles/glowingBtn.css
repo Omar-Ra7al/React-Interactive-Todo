@@ -48,6 +48,12 @@
   pointer-events: none;
 }
 
+@media (max-width: 775px) {
+  .glowing-btn::before {
+    background-color: transparent;
+  }
+}
+
 .glowing-btn::after {
   content: "";
   position: absolute;
@@ -62,6 +68,11 @@
   transition: opacity 100ms linear;
 }
 
+.glowing-btn.active::after {
+  opacity: 0.5;
+
+  background-color: var(--glow-color) !important;
+}
 .glowing-btn:hover {
   color: rgba(0, 0, 0, 0.8);
   text-shadow: none;
