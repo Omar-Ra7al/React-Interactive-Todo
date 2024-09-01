@@ -222,8 +222,13 @@
 
 .wrapper .change-status button {
   background-color: transparent;
-  color: #777;
+  /* color: #aabff2; */
+  color: #8a9bcc;
 }
+.content.light .change-status button {
+  color: var(--night-bgcolor);
+}
+
 /* End Change Status buttons */
 
 /* Shimmer Effect */

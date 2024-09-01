@@ -63,7 +63,11 @@ export default function TodosParent() {
   };
 
   const clearCompleted = () => {
-    handelOpenPopupandMsg("All Completed Cleared");
+    todosState.some((t) => {
+      if (t.checked) {
+        handelOpenPopupandMsg("All Completed Cleared");
+      }
+    });
     dispatch({ type: "clear-completed" });
   };
   // End Eventhandlers //>>
@@ -139,7 +143,8 @@ export default function TodosParent() {
                   toggleActive.notCompleted ? " glowing-btn  active" : ""
                 }`}>
                 <span className="glowing-txt">
-                  A<span className="faulty-letter">ct</span>ive
+                  A<span className="faulty-letter">ct</span>iv
+                  <span className="faulty-letter">e</span>
                 </span>
               </button>
 
@@ -154,11 +159,15 @@ export default function TodosParent() {
                   toggleActive.completed ? " glowing-btn  active" : ""
                 }`}>
                 <span className="glowing-txt">
-                  C<span className="faulty-letter">om</span>leted
+                  C<span className="faulty-letter">om</span>l
+                  <span className="faulty-letter">e</span>
+                  te
+                  <span className="faulty-letter">d</span>
                 </span>
               </button>
             </div>
             <button
+              className="clear"
               onClick={() => {
                 clearCompleted();
               }}>

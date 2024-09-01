@@ -96,6 +96,7 @@ export default function TodosDetails({ todosType }) {
         {/* Start Buttons */}
         <div className="todo-buttons">
           <button
+            aria-label="Delete Task"
             onClick={() => {
               setOpenDeletePopup(true);
               setTaksId(todo.id);
@@ -104,6 +105,7 @@ export default function TodosDetails({ todosType }) {
           </button>
 
           <button
+            aria-label="Edit Task"
             onClick={() => {
               setOpenUpdatePopup(true);
               setTaksId(todo.id);
@@ -112,6 +114,7 @@ export default function TodosDetails({ todosType }) {
           </button>
 
           <button
+            aria-label="Check Task"
             style={{ backgroundColor: todo.checked ? "#07bf01" : "" }}
             onClick={() => {
               handelCheck(todo.id);
