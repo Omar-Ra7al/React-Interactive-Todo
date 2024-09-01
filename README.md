@@ -27,7 +27,7 @@ This project is a fully responsive and interactive To-Do List application built 
 
 ## Demo
 
-Check out the live demo of the project [here](https://66cfbdccd3716a55971fca56--soft-daifuku-a5dea3.netlify.app/).
+Check out the live demo of the project [here]([https://66cfbdccd3716a55971fca56--soft-daifuku-a5dea3.netlify.app/](https://react-interactive-todo.vercel.app/)).
 
 ## Getting Started
 
