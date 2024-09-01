@@ -27,7 +27,8 @@ This project is a fully responsive and interactive To-Do List application built 
 
 ## Demo
 
-Check out the live demo of the project [here]((https://react-interactive-todo.vercel.app/)).
+Check out the live demo of the project [here](https://react-interactive-todo.vercel.app/)
+
 
 ## Getting Started
 
